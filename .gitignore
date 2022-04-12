@@ -25,3 +25,5 @@ dist-ssr
 *.sln
 *.sw?
 
+app/__tests__/App-test.tsx
+app/_bundle/config

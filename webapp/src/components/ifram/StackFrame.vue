@@ -1,14 +1,14 @@
 <template>
   <div class="stack-warp">
-    <NavBar
-      :title="title"
-      left-text="返回"
-      @click-left="onClickLeft"
-      @click-right="onClickRight"
-      left-arrow
-    >
+    <NavBar @click-left="onClickLeft" @click-right="onClickRight">
+      <template #title>
+        <h3>{{title}}</h3>
+      </template>
       <template #right>
         <van-icon v-if="!isMobile" name="qr" size="25" class="qr-icon" />
+      </template>
+      <template #left>
+        <van-icon name="arrow-left" :color="'#000'" size="25" />
       </template>
     </NavBar>
     <QRCode
@@ -19,12 +19,12 @@
     <div>
       <slot></slot>
     </div>
-  </div >
+  </div>
 </template>
 <script setup>
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
-import { onBeforeRouteUpdate,useRouter, useRoute } from "vue-router";
+import { onBeforeRouteUpdate, useRouter, useRoute } from "vue-router";
 import { routerBack } from "../../router/routerUtil";
 import { NavBar } from "vant";
 import "vant/es/nav-bar/style/index";
@@ -32,7 +32,7 @@ import QRCode from "../QRCode.vue";
 import { usePlatformStore } from "../../store/platform";
 
 const router = useRouter();
-const text = router.currentRoute.value.meta.title + '';
+const text = router.currentRoute.value.meta.title + "";
 const title = ref(text);
 const isShowQrCode = ref(false);
 const platformStore = usePlatformStore();
@@ -45,7 +45,7 @@ const qrCodeShow = () => {
 
 // 路由后退
 const onClickLeft = () => {
-  routerBack()
+  routerBack();
 };
 
 // 点击二维码图标
@@ -66,7 +66,7 @@ const onClickRight = () => {
     color: aqua;
   }
 }
-.stack-warp{
+.stack-warp {
   width: 100%;
 }
 </style>

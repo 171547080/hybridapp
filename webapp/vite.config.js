@@ -53,7 +53,7 @@ export default defineConfig({
     outDir: "dist",
 
     // 打包混淆 'terser' | 'esbuild',设置为 false 可以禁用最小化混淆，或是用来指定使用哪种混淆器。默认为 Esbuild
-    minify: false,
+    minify: 'terser',
 
     // gizp 打包优化
     assetsDir: './static',
