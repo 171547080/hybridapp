@@ -38,6 +38,7 @@ export const usePlatformStore = defineStore({
   state: () => ({
     isMobile: false,
     isAdmin: true,
+    isIphoneX:false
   }),
 
   actions: {

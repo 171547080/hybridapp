@@ -14,10 +14,18 @@ import { onMounted, ref, watch } from "vue";
 import OuterFrame from "./components/ifram/OuterFrame.vue";
 import { usePlatformStore } from "./store/platform";
 import { useAppStore } from "./store/app";
+import { storeToRefs } from 'pinia'
 import { onBeforeRouteLeave, onBeforeRouteUpdate, useRoute } from "vue-router";
 
 const platformStore = usePlatformStore()
 const appStore = useAppStore()
+
+platformStore.isIphoneX = window.isIphoneX
+
+// `isIphoneX`是响应式的
+// 插件增加的属性也会创建ref
+// 但是会自动跳过action或者不是响应性的属性
+const { isIphoneX } = storeToRefs(platformStore)
 
 const route = useRoute();
 watch(

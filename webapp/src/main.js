@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import { createPinia } from 'pinia'
 import { Icon } from 'vant';
+// 导入判断设备是否为iphoneX方法
+import './assets/js/IsIphoneX';
+// import './assets/js/htmlFontSize';
 
 const app = createApp(App)
 app.use(createPinia())
