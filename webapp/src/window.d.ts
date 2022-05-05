@@ -1,3 +1,7 @@
+interface ReactNativeWebView {
+    postMessage(data:string,origin:string):void 
+}
 interface Window{
-    isIphoneX:any
+    isIphoneX:any,
+    ReactNativeWebView:ReactNativeWebView
 }

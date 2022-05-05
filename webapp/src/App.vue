@@ -16,11 +16,18 @@ import { usePlatformStore } from "./store/platform";
 import { useAppStore } from "./store/app";
 import { storeToRefs } from 'pinia'
 import { onBeforeRouteLeave, onBeforeRouteUpdate, useRoute } from "vue-router";
+import { Notify } from 'vant';
+import "vant/es/Notify/style/index";
 
 const platformStore = usePlatformStore()
 const appStore = useAppStore()
 
 platformStore.isIphoneX = window.isIphoneX
+
+console.error(window)
+const data = {'username':'laigt','password':'123456'}
+window.postMessage(JSON.stringify(data),window.origin)
+
 
 // `isIphoneX`是响应式的
 // 插件增加的属性也会创建ref
@@ -34,6 +41,11 @@ watch(
     console.log("监听路由");
     console.log("new:" + n + ",old:" + o);
     console.error("APP",route)
+    const data = {'username':'laigt','password':'123456'}
+    if(window && window.postMessage){
+      window.postMessage(JSON.stringify(data),window.origin)  
+    }
+    Notify({ type: 'success', message: window.origin })
   }
 );
 
