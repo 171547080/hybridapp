@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Hybrid App ReactNative + Vue3</string>
+    <!-- <string name="app_name">@string/APP_NAME</string> -->
+    <string name="app_name">app</string>
 </resources>
