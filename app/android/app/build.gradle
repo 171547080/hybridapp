@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 import com.android.build.OutputFile
 
 /**
@@ -139,6 +139,9 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        // 使用 react native config 获取.env中的配置
+        // versionCode project.env.get('VERSIONCODE').toInteger()
+        // versionName project.env.get('VERSIONNAME')
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
         if (isNewArchitectureEnabled()) {
@@ -254,6 +257,8 @@ dependencies {
 
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
+
+    implementation project(':react-native-splash-screen') // react-native-splash-screen
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
