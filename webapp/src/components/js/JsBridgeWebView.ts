@@ -58,7 +58,6 @@ const getUniqueId = (subType, numLength = 10) => {
     while (numCall <= maxCall && DEP_MAP[subType] && !DEP_MAP[subType][randomID]) {
         randomID = subType + '_' + (Math.random() * num) % num
         numCall++ 
-        console.error(numCall)
     }
 
     return randomID
@@ -70,13 +69,23 @@ const getUniqueId = (subType, numLength = 10) => {
  * @param data 数据
  * @param platform 平台类型 android | ios | pc | mobile 
  */
-const callSubs = function (action, data, platform) {
+const callSubs = function (action, data, platform,callbackId) {
     // sub 是一个包含回调函数的map    key-subId-唯一id   value-callBack-回调函数
     const subs = DEP_MAP[action]
     // 这里要获取vm
     const vm = null
     for (let subId in subs) {
-        subs[subId].call(vm,data,platform)
+        const result = subs[subId].call(vm,data,platform)
+        
+        // 发送回调消息（携带callbackId）
+        const callBackData = {
+            type:subs,
+            callbackId:callbackId,
+            data:result,
+            scuess:true
+        }
+        
+        window.postMessage(JSON.stringify(callBackData))
     }
 
 }
@@ -89,15 +98,15 @@ const initHandleMessage = () => {
         return
     }
 
-
     const fn = function (e: any) {       
         if(e.data){
             const actionData = (JSON.parse(e.data) as ActionType)
             const action = actionData.type
             const data = actionData.data
             const platform = actionData.platform
+            const callbackId = actionData.callbackId
             // notice 发布消息（类型为action）
-            callSubs(action, data, platform)
+            callSubs(action, data, platform,callbackId)
         }
         // 处理e.data的异常
     }
