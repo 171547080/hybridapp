@@ -79,7 +79,7 @@ const callSubs = function (action, data, platform,callbackId) {
         
         // 发送回调消息（携带callbackId）
         const callBackData = {
-            type:subs,
+            type:action,
             callbackId:callbackId,
             data:result,
             scuess:true

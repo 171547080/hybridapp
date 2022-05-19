@@ -26,7 +26,8 @@ JsBridge.initJsBridge()
 
 // 添加login回调函数 - rn发送消息给h5  h5添加事件的监听与处理(捕获login事件,执行fn回调 data-传参 platform-消息来至的平台)
 JsBridge.addActionCallback('login', (data,platform) => {
-  alert("app login info: "+JSON.stringify(data) + 'platform: ' + platform)
+  // alert("app login info: "+JSON.stringify(data) + 'platform: ' + platform)
+  return {info:"i am h5,callback message success"}
 })
 
 
