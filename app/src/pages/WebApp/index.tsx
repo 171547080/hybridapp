@@ -9,6 +9,9 @@ interface IProps {
 interface IState {
   text: string
 }
+
+const jsBrige = useJsBridge(null)
+
 class Community extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
@@ -23,6 +26,8 @@ class Community extends React.Component<IProps, IState> {
       text: event.nativeEvent.data
     })
 
+    jsBrige.onHandleMessage(event)
+
   }
   // 原生调用webView.postMessage 发送消息
   sendMessage(data: any) {
@@ -35,16 +40,17 @@ class Community extends React.Component<IProps, IState> {
   }
   componentDidMount() {
     const jsBrige = useJsBridge(this.refs.webview as WebView)
-    setTimeout(()=>{
+    setTimeout(() => {
       const action = {
-        type:"login",
-        data:{ user: 'laigt', relName: '赖先生' }
+        type: "login",
+        data: { user: 'laigt', relName: '赖先生' }
       }
-      jsBrige.dispatch(action)
-    },2000)
+      const p = jsBrige.dispatch(action, (res:any) => {console.error(res)})
+
+    }, 2000)
   }
   render() {
-    
+
     const { text } = this.state
     const webUrl = AppConfig.webAppUrl;
 
