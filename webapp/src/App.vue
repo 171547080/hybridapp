@@ -34,20 +34,24 @@ JsBridge.addActionCallback('login', (data,platform) => {
 const platformStore = usePlatformStore()
 const appStore = useAppStore()
 
+// 检查浏览器数据，是否为移动设备
+platformStore.checkPlatform();
+
 platformStore.isIphoneX = window.isIphoneX
-
-console.error(window)
-//  h5 传参给 rn
-const data = { 'username': 'laigt', 'password': '123456' }
-window.postMessage(JSON.stringify(data), window.origin)
-
-
-
 // `isIphoneX`是响应式的
 // 插件增加的属性也会创建ref
 // 但是会自动跳过action或者不是响应性的属性
 const { isIphoneX } = storeToRefs(platformStore)
 
+
+
+//  h5 传参给 rn
+// const data = { 'username': 'laigt', 'password': '123456' }
+// window.postMessage(JSON.stringify(data), window.origin)
+
+
+/*
+  监听路由切换
 const route = useRoute();
 watch(
   () => route.fullPath,
@@ -62,9 +66,10 @@ watch(
     Notify({ type: 'success', message: window.origin })
   }
 );
+*/
 
-// 检查浏览器数据，是否为移动设备
-platformStore.checkPlatform();
+
+
 </script>
 <style lang="less" scoped>
 .Router {
