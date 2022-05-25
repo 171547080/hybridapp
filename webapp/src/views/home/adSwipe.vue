@@ -43,6 +43,7 @@ export default defineComponent({
 <style lang="less" scoped>
 .my-swipe {
     .sw-item {
+        margin-top: .1rem;
         color: #fff;
         font-size: 20px;
         text-align: center;
