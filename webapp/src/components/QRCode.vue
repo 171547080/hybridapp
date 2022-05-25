@@ -10,9 +10,9 @@ import QrcodeVue from "qrcode.vue"
 import { Dialog } from "vant";
 import "vant/es/dialog/style/index";    
 
-const url = 'http://192.168.19.191:8080'
+const url = window.location.protocol +'\\' +window.location.host
 const vantDialog =  Dialog.Component   
-  
+
 </script >
 <style lang="less" scoped>
 .content{
