@@ -70,14 +70,14 @@ export default defineComponent({
     ]);
 
     const goods = ref([
-      {id:'1',img:'/goods/1.webp',name:'闪迪sandisk内存卡class10存储sd卡 高速行车记录仪tf卡 手机内存卡 128G 120M/s A1Class10 TF卡',icon:'/goods/icon/hot.svg',remark:'近期购买用户过千'},
-      {id:'2',img:'/goods/2.webp',name:'苏泊尔（SUPOR）电饭煲电饭锅4L陶晶不粘内胆2-6人微压焖香蛋糕功能家用智能电饭煲巧克力色40FC829D ',icon:'/goods/icon/new_1.svg'},
-      {id:'3',img:'/goods/1.webp',name:'闪迪sandisk内存卡class10存储sd卡 高速行车记录仪tf卡 手机内存卡 128G 120M/s A1Class10 TF卡',icon:'/goods/icon/new_2.svg',remark:'大家说 "物流快速' },
-      {id:'4',img:'/goods/2.webp',name:'苏泊尔（SUPOR）电饭煲电饭锅4L陶晶不粘内胆2-6人微压焖香蛋糕功能家用智能电饭煲巧克力色40FC829D ',icon:'/goods/icon/one.svg',remark:'回头客上千'},
-      {id:'5',img:'/goods/1.webp',name:'闪迪sandisk内存卡class10存储sd卡 高速行车记录仪tf卡 手机内存卡 128G 120M/s A1Class10 TF卡',icon:'/goods/icon/recommend.svg'},
-      {id:'6',img:'/goods/2.webp',name:'苏泊尔（SUPOR）电饭煲电饭锅4L陶晶不粘内胆2-6人微压焖香蛋糕功能家用智能电饭煲巧克力色40FC829D ',icon:'/goods/icon/sale.svg',remark:'近7天商品热销'},
-      {id:'7',img:'/goods/1.webp',name:'闪迪sandisk内存卡class10存储sd卡 高速行车记录仪tf卡 手机内存卡 128G 120M/s A1Class10 TF卡',icon:'/goods/icon/new_2.svg'},
-      {id:'8',img:'/goods/2.webp',name:'苏泊尔（SUPOR）电饭煲电饭锅4L陶晶不粘内胆2-6人微压焖香蛋糕功能家用智能电饭煲巧克力色40FC829D ',icon:''}
+      {id:'1',img:'/goods/1.webp',price:'58.50',comment:'20',name:'闪迪sandisk内存卡class10存储sd卡 高速行车记录仪tf卡 手机内存卡 128G 120M/s A1Class10 TF卡',icon:'/goods/icon/hot.svg',remark:'近期购买用户过千'},
+      {id:'2',img:'/goods/2.webp',price:'219.00',comment:'547',name:'苏泊尔（SUPOR）电饭煲电饭锅4L陶晶不粘内胆2-6人微压焖香蛋糕功能家用智能电饭煲巧克力色40FC829D ',icon:'/goods/icon/new_1.svg'},
+      {id:'3',img:'/goods/1.webp',price:'64.99',comment:'1500000',name:'闪迪sandisk内存卡class10存储sd卡 高速行车记录仪tf卡 手机内存卡 128G 120M/s A1Class10 TF卡',icon:'/goods/icon/new_2.svg',remark:'大家说 "物流快速' },
+      {id:'4',img:'/goods/2.webp',price:'699.00',comment:'18782',name:'苏泊尔（SUPOR）电饭煲电饭锅4L陶晶不粘内胆2-6人微压焖香蛋糕功能家用智能电饭煲巧克力色40FC829D ',icon:'/goods/icon/one.svg',remark:'回头客上千'},
+      {id:'5',img:'/goods/1.webp',price:'15.99',comment:'55',name:'闪迪sandisk内存卡class10存储sd卡 高速行车记录仪tf卡 手机内存卡 128G 120M/s A1Class10 TF卡',icon:'/goods/icon/recommend.svg'},
+      {id:'6',img:'/goods/2.webp',price:'399.00',comment:'6975',name:'苏泊尔（SUPOR）电饭煲电饭锅4L陶晶不粘内胆2-6人微压焖香蛋糕功能家用智能电饭煲巧克力色40FC829D ',icon:'/goods/icon/sale.svg',remark:'近7天商品热销'},
+      {id:'7',img:'/goods/1.webp',price:'98.50',comment:'15124850',name:'闪迪sandisk内存卡class10存储sd卡 高速行车记录仪tf卡 手机内存卡 128G 120M/s A1Class10 TF卡',icon:'/goods/icon/new_2.svg'},
+      {id:'8',img:'/goods/2.webp',price:'199.00',comment:'95',name:'苏泊尔（SUPOR）电饭煲电饭锅4L陶晶不粘内胆2-6人微压焖香蛋糕功能家用智能电饭煲巧克力色40FC829D ',icon:''}
     ])
 
     const pushRouter = (name) => {
@@ -109,7 +109,6 @@ export default defineComponent({
 .content-warp {
   margin-top: 5rem;
   .content{
-    height: 1000vh;
     padding: 0 0.5rem;
   }
 }
