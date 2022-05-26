@@ -76,9 +76,10 @@ export default defineComponent({
         font-weight: 500;
     }
     .meum-img{
-    display: inline-block;
-    width: 50%;
-}
+        display: inline-block;
+        pointer-events: none;
+        width: 50%;
+    }
 }
 
 </style>
