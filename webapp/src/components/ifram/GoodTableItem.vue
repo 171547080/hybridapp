@@ -9,7 +9,14 @@
                     <img v-if="props.info.icon" class="good-icon" :src="props.info.icon">{{ props.info.name }}
                 </div>
                 <div class="good-row">
-                   <div v-if="props.info.remark" class="good-row-remark"> {{ props.info.remark }}</div>
+                    <div v-if="props.info.price" class="good-row-price">
+                        ¥<span class="good-row-price-enlarge">{{ price[0]}}</span>.{{price[1]}}
+                    </div>
+                    <div class="good-more">
+                        <div v-if="props.info.remark" class="good-row-remark"> {{ props.info.remark }}</div>
+                        <div v-else-if="props.info.comment" class="good-row-comment"> {{ commentStr }}</div>
+                        <div class="more-btn"> 看相识 </div>
+                    </div>
                 </div>
                 <div class="good-row-bottom"></div>
             </div>
@@ -38,6 +45,41 @@ const props = defineProps({
 const width = computed(()=>{
     return ( 100 / props.item ) + "%"
 })
+
+const price = computed(()=>{
+    let array = []
+    if(props.info.price){
+       array = props.info.price.split(".")
+    }
+    return array
+})
+
+const commentStr = computed(()=>{
+    let mun = props.info.comment
+    const suffix = "条评论"
+    //5000
+    if(mun >= 100000000){
+        return mun.substring(0,mun.length - 8) + '亿+'+ suffix
+    }
+    
+    if(mun >= 10000000){
+        return mun.substring(0,mun.length - 7) + '千万+'+ suffix
+    }
+
+    if(mun >= 1000000){
+        return mun.substring(0,mun.length - 6) + '百万+'+ suffix
+    }
+
+    if(mun >= 10000){
+        return mun.substring(0,mun.length - 4) + '万+'+ suffix
+    }
+
+    if(mun >= 1000){
+        return mun.substring(0,mun.length - 3) + '千+'+ suffix  
+    }
+    return mun + suffix
+})
+
 
 </script>
 <style lang="less" scoped>
@@ -100,12 +142,42 @@ const width = computed(()=>{
         padding: 0.2rem 0;
         color: #ff6868;
         font-size: 0.6rem;
+        
+        .good-more{
+            position: relative;
+            .more-btn{
+                background: #f6f6f6;
+                position:absolute;
+                top:0;
+                right: 0;
+                color: #434343;
+                font-weight: bold;
+                padding: .1rem .6rem;
+                border-radius: 50% 5% 50% 5%;
+              
+                
+             
+            }
+        }
         .good-row-remark{
             display: inline-block;
             border-radius: 5px;
             padding: 0.1rem 0.3rem ;
             background: #f6f6f6;
         }
+        .good-row-comment{
+            font-size: .8rem;
+            color: #434343;
+        }
+        .good-row-price{
+            font-size: 0.8rem;
+            padding-top: 0rem;
+            color: #e43130;
+            .good-row-price-enlarge{
+                font-size: 1.2rem;
+            }
+        }
+        
     }
 }
 
