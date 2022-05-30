@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import friends from "./modules/friends";
 import user from "./modules/user";
 import product from "./modules/product";
+import ifram from './modules/ifram'
 import { useAppStore } from "../store/app";
 
 const routes = [
@@ -36,7 +37,7 @@ const routes = [
 const router = createRouter({
   // hash模式
   history: createWebHashHistory(),
-  routes: [...routes, ...user, ...friends, ...product],
+  routes: [...routes, ...user, ...friends, ...product,...ifram],
 });
 
 // 全局守卫，添加页面切换的过渡动画效果，配合rout/routerUtil.routerPush使用
