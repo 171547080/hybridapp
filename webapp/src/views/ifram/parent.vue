@@ -10,7 +10,7 @@
 
 <script setup>
 import { ref,onMounted } from 'vue';
-import { createJsWindosBridge } from '../../components/js/jsWindosBridge'
+import { createJsWindosBridgeBus } from '../../components/js/jsWindosBridge'
 const getIframByName = (name) => {
    return window.frames[name]
 }
