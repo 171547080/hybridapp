@@ -3,6 +3,7 @@ interface ReactNativeWebView {
 }
 interface Window{
     isIphoneX:any,
-    depMessageFn: depMessageFn
-    ReactNativeWebView:ReactNativeWebView
+    depMessageFn: Function
+    depWindosMessageFn: Function
+    ReactNativeWebView: ReactNativeWebView
 }

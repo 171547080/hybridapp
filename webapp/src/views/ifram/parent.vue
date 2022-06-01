@@ -10,7 +10,7 @@
 
 <script setup>
 import { ref,onMounted } from 'vue';
-import { createJsWindosBridgeBus } from '../../components/js/jsWindosBridge'
+import { createJsWindosBridgeBus } from '../../components/js/JsBridge/JsBridgeBus'
 const getIframByName = (name) => {
    return window.frames[name]
 }
@@ -19,11 +19,12 @@ const brother = ref(null)
 onMounted(()=>{
     
     const JsWindosBridgeBus = createJsWindosBridgeBus()
+
+    // 注册ifram窗口
     JsWindosBridgeBus.useWindosBridge(getIframByName('children'),'children')
     JsWindosBridgeBus.useWindosBridge(getIframByName('brother'),'brother')
-    getIframByName('brother').postMessage(JSON.stringify({message:"getIframByName hello"}))
-    console.error('brother message')
-   
+
+    // getIframByName('brother').postMessage(JSON.stringify({message:"getIframByName hello"}))
 })
 
 </script>
