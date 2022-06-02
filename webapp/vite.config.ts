@@ -3,9 +3,11 @@ import vue from "@vitejs/plugin-vue";
 import visualizer from "rollup-plugin-visualizer";
 import viteCompression from 'vite-plugin-compression';
 import path from "path";
+import proxy from './src/config/vite/proxy'
 import commonjs from "rollup-plugin-commonjs";
 import externalGlobals from "rollup-plugin-external-globals";
-const apiUrl = "127.0.0.1:3000";
+// const apiUrl = "127.0.0.1:3000";
+
 
 function resovePath(paths: string) {
   // 如何 __dirname 找不到 需要 yarn add @types/node --save-dev
@@ -35,14 +37,15 @@ export default defineConfig({
     strictPort: false,
     // 设置默认打开页面
     // open:'/index.html'
-    // 设置接口代理，下发为/api转发到服务端
-    proxy: {
-      "/api": {
-        target: apiUrl,
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
-      },
-    },
+    // 设置接口代理，下发为/api转发到服务端  现在引用proxy方式进行配置
+    // proxy: {
+    //   "/api": {
+    //     target: apiUrl,
+    //     changeOrigin: true,
+    //     rewrite: (path) => path.replace(/^\/api/, ""),
+    //   },
+    // },
+    proxy,
     // 热更新
     hmr: {
       // 设置为false时，编译错误时不弹出屏蔽层
