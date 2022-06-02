@@ -2,14 +2,28 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import visualizer from "rollup-plugin-visualizer";
 import viteCompression from 'vite-plugin-compression';
+import path from "path";
 import commonjs from "rollup-plugin-commonjs";
 import externalGlobals from "rollup-plugin-external-globals";
 const apiUrl = "127.0.0.1:3000";
+
+function resovePath(paths: string) {
+  // 如何 __dirname 找不到 需要 yarn add @types/node --save-dev
+  return path.resolve(__dirname, paths);
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
   // plugins: [visualizer()] - 添加打包分析工具
   plugins: [vue(), visualizer(),viteCompression()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, './src'),
+      '@config': resovePath('./config'),
+      "@components": resovePath('./src/components'),
+      '@api': resovePath('./src/api'),
+    }
+  },
   server: {
     // 设置为'0.0.0.0' 所有网卡都会启动服务
     host: "0.0.0.0",
