@@ -27,7 +27,10 @@
     "types": ["vite/client", "node"],
     "typeRoots": ["./node_modules/@types/", "./types"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@config/*": ["config/*"],
+      "@components/*": ["src/components/*"],
+      "@api/*": ["src/api/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
