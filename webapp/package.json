@@ -10,24 +10,25 @@
   "dependencies": {
     "axios": "^0.25.0",
     "babel-plugin-import": "^1.13.3",
-    "less": "^4.1.2",
-    "less-loader": "7.x",
     "qrcode.vue": "^3.3.3",
-    "typescript": "^4.5.5",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12",
-    "yarn": "^1.22.18"
+    "pinia": "^2.0.11",
+    "qs": "^6.10.3",
+    "vant": "^3.4.7"   
   },
   "devDependencies": {
+    "less": "^4.1.2",
+    "less-loader": "7.x",
+    "yarn": "^1.22.18",
+    "typescript": "^4.5.5",
     "@vitejs/plugin-vue": "^2.3.1",
-    "pinia": "^2.0.11",
     "qrcodejs2": "^0.0.2",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-external-globals": "^0.6.1",
     "rollup-plugin-visualizer": "^5.5.4",
     "sass": "^1.49.0",
-    "vant": "^3.4.7",
     "vite": "^2.7.2",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-inject-externals": "^1.1.1"
