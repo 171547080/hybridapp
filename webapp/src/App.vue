@@ -10,13 +10,9 @@
   </OuterFrame>
 </template>
 <script setup>
-import { onMounted, ref, watch } from "vue";
 import OuterFrame from "./components/ifram/OuterFrame.vue";
-import { usePlatformStore } from "./store/platform";
-import { useAppStore } from "./store/app";
+import { usePlatformStore,useAppStore } from "@/store";
 import { storeToRefs } from 'pinia'
-import { onBeforeRouteLeave, onBeforeRouteUpdate, useRoute } from "vue-router";
-import { Notify } from 'vant';
 import JsBridge from './components/js/JsBridgeWebView'
 import "vant/es/Notify/style/index";
 

@@ -24,12 +24,12 @@
 <script setup>
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
-import { onBeforeRouteUpdate, useRouter, useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 import { routerBack } from "../../router/routerUtil";
 import { NavBar } from "vant";
 import "vant/es/nav-bar/style/index";
 import QRCode from "../QRCode.vue";
-import { usePlatformStore } from "../../store/platform";
+import { usePlatformStore } from "@/store";
 
 const router = useRouter();
 const text = router.currentRoute.value.meta.title + "";

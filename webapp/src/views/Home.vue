@@ -38,12 +38,12 @@ import "vant/es/grid-item/style/index";
 
 import { routerPush } from "../router/routerUtil";
 
-import IHead from '../components/inside/IHead.vue'
+import IHead from '@components/inside/IHead.vue'
+import Cardx from '@components/ifram/Cardx.vue'
+import GoodTableItem from '@components/ifram/GoodTableItem.vue'
+import GoodTable from '@components/ifram/GoodTable.vue'
 import AdSwipe from './home/adSwipe.vue'
 import MenuSwipe from './home/menuSwipe.vue'
-import Cardx from '../components/ifram/Cardx.vue'
-import GoodTableItem from '../components/ifram/GoodTableItem.vue'
-import GoodTable from '../components/ifram/GoodTable.vue'
 export default defineComponent({
   name: "Home",
   components: {

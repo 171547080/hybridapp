@@ -25,15 +25,15 @@ import { Icon, Search } from 'vant'
 import 'vant/es/search/style/index'
 
 const searchValue = ref('')
-const searchRef = ref(null)
-const offsetTop = ref(null)
-const searchWrapperRef = ref(null)
+const searchRef = ref()
+const offsetTop = ref()
+const searchWrapperRef = ref()
 
-const scrollToTop = (even) => {
+const scrollToTop = (event) => {
     if(window.pageYOffset > 5 ){
-       searchWrapperRef.value.style.backgroundColor =  '#e43130'
+        searchWrapperRef.value.style.backgroundColor =  '#e43130'
     }else{
-        searchWrapperRef.value.style.backgroundColor =  '#c82519'
+        searchWrapperRef.value.backgroundColor =  '#c82519'
     }
     
 

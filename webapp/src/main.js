@@ -1,14 +1,14 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import { createPinia } from 'pinia'
+import piniaStore from '@/store'
 import { Icon } from 'vant';
 // 导入判断设备是否为iphoneX方法
 import './assets/js/IsIphoneX';
 // import './assets/js/htmlFontSize';
 
 const app = createApp(App)
-app.use(createPinia())
+app.use(piniaStore)
 app.use(router)
 
 // 全局引用Vant的图标库

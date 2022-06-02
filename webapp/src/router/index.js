@@ -4,7 +4,7 @@ import friends from "./modules/friends";
 import user from "./modules/user";
 import product from "./modules/product";
 import ifram from './modules/ifram'
-import { useAppStore } from "../store/app";
+import { useAppStore } from "@/store";
 
 const routes = [
   {

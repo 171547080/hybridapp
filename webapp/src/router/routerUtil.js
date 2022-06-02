@@ -1,4 +1,3 @@
-import { useRouter } from "vue-router";
 import Router from "../router/index";
 
 function isString(str) {
@@ -30,7 +29,7 @@ export function routerPush(data) {
  * 路由返回操作 -- 配合页面切换过渡动画
  * @param {*} data  string  || object
  */
-export function routerBack(r) {
+export function routerBack() {
   Router.back();
 }
 export * from "vue-router";

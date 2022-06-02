@@ -20,9 +20,11 @@ const checkIsMobile = () => {
         iPad: u.indexOf("iPad") > -1, //是否iPad
         webApp: u.indexOf("Safari") == -1, //是否web应该程序，没有头部与底部
         weixin: u.indexOf("MicroMessenger") > -1, //是否微信 （2015-01-22新增）
+        // @ts-ignore
         qq: u.match(/\sQQ/i) == " qq", //是否QQ
       };
     })(),
+    // @ts-ignore
     language: (navigator.browserLanguage || navigator.language).toLowerCase(),
   };
   return {
@@ -51,7 +53,6 @@ export const usePlatformStore = defineStore({
       }
 
       const currentPlatform = checkIsMobile();
-      console.error(currentPlatform);
       this.$patch({
         isMobile: currentPlatform.isMobile,
       });
