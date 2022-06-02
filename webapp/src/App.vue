@@ -11,7 +11,8 @@
 </template>
 <script setup>
 import OuterFrame from "./components/ifram/OuterFrame.vue";
-import { usePlatformStore,useAppStore } from "@/store";
+import userApi from "@api/user"
+import { usePlatformStore,useAppStore,useUserStore } from "@/store";
 import { storeToRefs } from 'pinia'
 import JsBridge from './components/js/JsBridgeWebView'
 import "vant/es/Notify/style/index";
@@ -39,6 +40,11 @@ platformStore.isIphoneX = window.isIphoneX
 // 但是会自动跳过action或者不是响应性的属性
 const { isIphoneX } = storeToRefs(platformStore)
 
+//检查登录信息
+// useUserStore().checkLogin();
+
+// 模拟登录
+useUserStore().login("laigt",'123456')
 
 
 //  h5 传参给 rn
