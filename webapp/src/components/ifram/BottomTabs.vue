@@ -12,7 +12,7 @@
 import { Tabbar, TabbarItem } from "vant";
 import "vant/es/Tabbar/style/index";
 import "vant/es/tabbar-item/style/index";
-import { ref,onMounted } from "vue";
+import { ref,onMounted, reactive } from "vue";
 import { routerPush } from "../../router/routerUtil";
 import { useRouter,useRoute } from "vue-router";
 
@@ -32,21 +32,24 @@ const route = useRoute();
 
 // hash模式
 const currentTabName = router.currentRoute.value.name || window.location.hash.substring(2) ||'home'
-let currentTabIndex = 0
+const active = ref(0);
+
+
 tabs.value.forEach((d,i)=>{
     if(d.name === currentTabName){
-      currentTabIndex = i
+      active.value = i
     }
 })
-
-const active = ref(0);
 
 const onChange = (i) => {
   const current = (tabs.value || {})[i];
   if (current && current.name) {
+    active.value = i
     routerPush(current.name);
   }
 };
+
+
 </script>
 
 <style lang="less" scpoed>
