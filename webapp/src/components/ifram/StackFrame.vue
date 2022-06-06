@@ -21,7 +21,7 @@
     </div>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
@@ -38,6 +38,11 @@ const isShowQrCode = ref(false);
 const platformStore = usePlatformStore();
 const { isMobile } = storeToRefs(platformStore);
 
+// 定义emit的触发类型
+const emit= defineEmits<{
+  (e: 'clickRight', str: string): void
+}>()
+
 // 显示隐藏二维码
 const qrCodeShow = () => {
   isShowQrCode.value = true;
@@ -45,16 +50,25 @@ const qrCodeShow = () => {
 
 // 路由后退
 const onClickLeft = () => {
-  routerBack();
+  goBack()
 };
+
+const goBack = ()=>{
+  routerBack();
+}
 
 // 点击二维码图标
 const onClickRight = () => {
-  console.error("onClickRight");
+  emit('clickRight','点击了右图标') 
+
   if (!isShowQrCode.value) {
     qrCodeShow();
   }
 };
+
+// 通过defineExpose 暴露方法给外部使用（父组件 通过ref.value.XXX调用）
+defineExpose({ goBack})
+
 </script>
 
 <style lang="less" scpoed>
