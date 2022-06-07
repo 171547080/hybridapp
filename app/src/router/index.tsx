@@ -39,6 +39,7 @@ const Router = function () {
           headerTitleAlign: 'center',
           gestureEnabled: true,
           headerShadowVisible: false,
+          headerShown:false,
           headerTitleStyle: {
             fontSize: 17,
             color: '#333333',
